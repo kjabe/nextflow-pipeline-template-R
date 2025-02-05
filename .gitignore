@@ -54,9 +54,18 @@ rsconnect/
 !work/
 !renv/
 
-# Ignore all .DS_Store files
+# Ignore .DS_Store files
 .DS_Store
-**/.DS_Store
+
+# Specifically ignore .DS_Store in any subdirectory
+analysis/**/.DS_Store
+data/**/.DS_Store
+work/**/.DS_Store
+renv/**/.DS_Store
+
+# Do not ignore placeholder files
+!.gitignore
+!.keep
 
 # Ignore .Rprofile files
 .Rprofile
