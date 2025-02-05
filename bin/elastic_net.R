@@ -15,7 +15,7 @@ all_dataset <- readRDS(input_file)
 
 # Filter and prepare data
 filtered_data <- all_dataset %>%
-  filter(Group != "NULISA Assay Control", Group %in% c("PTSD", "CPTSD"))
+  filter(Group != "Assay Control", Group %in% c("Group1", "Group2"))
 filtered_data$Group <- as.factor(filtered_data$Group)
 
 # Transform data to wide format
@@ -130,8 +130,8 @@ coefficients <- coefficients[selected_targets, , drop = FALSE]
 coefficients$targetName <- rownames(coefficients)
 colnames(coefficients) <- c("Coefficient", "targetName")
 coefficients$Category <- ifelse(coefficients$Coefficient < 0, 
-                                "Increased probability of PTSD", 
-                                "Increased probability of CPTSD")
+                                "Increased probability of Group1", 
+                                "Increased probability of Group2")
 
 # Create coefficient plot
 pdf("coefficients_plot.pdf", width = 8, height = 6)
@@ -140,12 +140,12 @@ bar_plot <- ggplot(coefficients,
                        y = Coefficient, 
                        fill = Category)) +
   geom_bar(stat = "identity") +
-  scale_fill_manual(values = c("Increased probability of PTSD" = "#70D2D7", 
-                               "Increased probability of CPTSD" = "#FBA09A")) +
+  scale_fill_manual(values = c("Increased probability of Group1" = "#70D2D7", 
+                               "Increased probability of Group2" = "#FBA09A")) +
   theme_classic(base_size = 12) +
   xlab("Target") +
   ylab("Elastic Net Coefficient") +
-  ggtitle("Targets Multivariately Discriminating PTSD vs. CPTSD") +
+  ggtitle("Targets Multivariately Discriminating Group1 vs. Group2") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 12), 
         plot.margin = margin(t = 30, r = 30, b = 30, l = 30)) +
   labs(fill = NULL)

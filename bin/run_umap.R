@@ -15,7 +15,7 @@ cat("Reading input file:", input_file, "\n")
 all_dataset <- readRDS(input_file)
 
 # Filter and transform data for UMAP
-all_dataset_filtered <- all_dataset %>% filter(Group != "NULISA Assay Control")
+all_dataset_filtered <- all_dataset %>% filter(Group != "Assay Control")
 all_dataset_wide <- all_dataset_filtered %>%
   select(-Group) %>%
   spread(key = targetName, value = Value)
