@@ -22,7 +22,7 @@ This repository contains a template for a Nextflow pipeline that integrates R sc
     curl -s https://get.nextflow.io | bash
     ```
 
-3. Initialize the R environment using [renv](http://_vscodecontentref_/9):
+3. Initialize the R environment using renv:
     ```sh
     Rscript -e "renv::restore()"
     ```
@@ -38,8 +38,8 @@ The pipeline consists of the following processes:
 
 ## Running the Pipeline
 
-1. Ensure your data files are placed in the [data](http://_vscodecontentref_/10) directory.
-2. Update the [main.nf](http://_vscodecontentref_/11) file with the correct paths to your data files.
+1. Ensure your data files are placed in the data directory.
+2. Update the main.nf file with the correct paths to your data files.
 3. Run the pipeline:
     ```sh
     ./nextflow run main.nf
@@ -47,20 +47,20 @@ The pipeline consists of the following processes:
 
 ## Configuration
 
-The pipeline configuration is managed through the [nextflow.config](http://_vscodecontentref_/12) file. You can set the paths for data directories and other parameters here.
+The pipeline configuration is managed through the nextflow.config file. You can set the paths for data directories and other parameters here.
 
 ## R Scripts
 
-The [bin](http://_vscodecontentref_/13) directory contains the R scripts used in the pipeline:
+The bin directory contains the R scripts used in the pipeline:
 
-- [clear_workspace.R](http://_vscodecontentref_/14): Clears the R workspace.
-- [load_data.R](http://_vscodecontentref_/15): Loads and preprocesses the data.
-- [run_umap.R](http://_vscodecontentref_/16): Runs UMAP dimensionality reduction.
-- [elastic_net.R](http://_vscodecontentref_/17): Performs Elastic Net analysis.
+- clear_workspace.R: Clears the R workspace.
+- load_data.R: Loads and preprocesses the data.
+- run_umap.R: Runs UMAP dimensionality reduction.
+- elastic_net.R: Performs Elastic Net analysis.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](http://_vscodecontentref_/18) file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
 
