@@ -48,6 +48,12 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+# Ensure directories are not ignored
+!analysis/
+!data/
+!work/
+!renv/
+
 # Ignore all .DS_Store files
 .DS_Store
 **/.DS_Store
