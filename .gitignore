@@ -47,3 +47,10 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Ignore all .DS_Store files
+.DS_Store
+**/.DS_Store
+
+# Ignore .Rprofile files
+.Rprofile
