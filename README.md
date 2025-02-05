@@ -13,7 +13,7 @@ This repository contains a template for a Nextflow pipeline that integrates R sc
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/nextflow_pipeline_template_R.git
+    git clone https://github.com/kjabe/nextflow-pipeline-template-R.git
     cd nextflow_pipeline_template_R
     ```
 
