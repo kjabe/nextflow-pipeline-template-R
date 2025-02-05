@@ -16,8 +16,8 @@ process LoadData {
 
     input:
     path id_path
-    path nulisa1_path
-    path nulisa2_path
+    path data1_path
+    path data2_path
 
     output:
     path 'all_dataset.rds'
@@ -27,10 +27,10 @@ process LoadData {
     echo "Current working directory: \$PWD"
     echo "Input files:"
     echo "ID path: ${id_path}"
-    echo "NULISA1 path: ${nulisa1_path}"
-    echo "NULISA2 path: ${nulisa2_path}"
+    echo "data1 path: ${data1_path}"
+    echo "data2 path: ${data2_path}"
     
-    Rscript "${baseDir}/bin/load_data.R" "${id_path}" "${nulisa1_path}" "${nulisa2_path}"
+    Rscript "${baseDir}/bin/load_data.R" "${id_path}" "${data1_path}" "${data2_path}"
     
     echo "Contents of current directory after R script:"
     ls -la
@@ -105,11 +105,11 @@ workflow {
 
     data1_file = Channel
         .fromPath('./data/your_data1_file_name.xlsx')
-        .ifEmpty { error "Cannot find NULISA1 file: ./data/your_data1_file_name.xlsx" }
+        .ifEmpty { error "Cannot find data1 file: ./data/your_data1_file_name.xlsx" }
 
     data2_file = Channel
         .fromPath('./data/your_data2_file_name.xlsx')
-        .ifEmpty { error "Cannot find NULISA2 file: ./data/your_data2_file_name.xlsx" }
+        .ifEmpty { error "Cannot find data2 file: ./data/your_data2_file_name.xlsx" }
     
     // Execute processes in order
     load_data = LoadData(id_file, data1_file, data2_file)
